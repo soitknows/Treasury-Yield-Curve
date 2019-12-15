@@ -4,5 +4,6 @@ Plot daily treasury yield curve rate data from the [U.S. Department of the Treas
 
 Source data XML pulled from https://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData
 
+[Click here to view an example](https://soitknows.shinyapps.io/TreasuryYieldCurve)
 
 
