@@ -17,5 +17,5 @@ ui <- fluidPage(
               label = "Bond 2",
               choices = bonds),
   
-  plotOutput(outputId = "stats")
+  plotlyOutput(outputId = "stats")
 )
