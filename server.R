@@ -23,21 +23,19 @@ getData <- function (year, bond1_input, bond2_input){
   df2$date <- as.Date(df2$date)
   df2$return <- as.numeric(as.character(df2$return))
   
-  df <- merge(df1, df2, by="date")
-  colnames(df) <- c("Date", "Bond1", "Bond2")
-  print(df)
+  d <- merge(df1, df2, by="date")
+  colnames(d) <- c("Date", "Bond1", "Bond2")
+  print(d)
 }
 
 
 function (input, output) {
   df <- reactive({
-    
     bond_data <- getData(input$year, input$bond1, input$bond2)
   })
   
   output$stats<- renderPlotly({
     plot_ly(df(), x= ~Date, y= ~Bond1, type='scatter', mode = 'lines', name="Bond 1") %>%
       add_trace(y = ~Bond2, name = "Bond 2") 
-            
   })
 }
