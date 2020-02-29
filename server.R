@@ -25,7 +25,7 @@ getData <- function (year, bond1_input, bond2_input){
   
   d <- merge(df1, df2, by="date")
   colnames(d) <- c("Date", "Bond1", "Bond2")
-  print(d)
+  d
 }
 
 
@@ -36,6 +36,7 @@ function (input, output) {
   
   output$stats<- renderPlotly({
     plot_ly(df(), x= ~Date, y= ~Bond1, type='scatter', mode = 'lines', name=input$bond1) %>%
-      add_trace(y = ~Bond2, name = input$bond2) 
+      add_trace(y = ~Bond2, name = input$bond2) %>% 
+      layout(xaxis = list(title="DATE"), yaxis = list(title="RATE"))
   })
 }
