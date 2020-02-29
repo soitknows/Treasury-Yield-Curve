@@ -35,7 +35,7 @@ function (input, output) {
   })
   
   output$stats<- renderPlotly({
-    plot_ly(df(), x= ~Date, y= ~Bond1, type='scatter', mode = 'lines', name="Bond 1") %>%
-      add_trace(y = ~Bond2, name = "Bond 2") 
+    plot_ly(df(), x= ~Date, y= ~Bond1, type='scatter', mode = 'lines', name=input$bond1) %>%
+      add_trace(y = ~Bond2, name = input$bond2) 
   })
 }
