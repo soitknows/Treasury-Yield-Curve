@@ -18,14 +18,16 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput(inputId = "year",
                   label = "Year",
-                  choices = years),
+                  choices = years,
+                  selected = years[length(years)]),
       selectInput(inputId = "bond1",
                   label = "Bond 1",
                   choices = bonds),
       
       selectInput(inputId = "bond2",
                   label = "Bond 2",
-                  choices = bonds),
+                  choices = bonds,
+                  selected = bonds[length(bonds)]),
      width = 2
   ), 
     
