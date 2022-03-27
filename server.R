@@ -1,10 +1,11 @@
-library(curl)
 library(shiny)
+library(xml2)
 library(ggplot2)
 library(plotly)
 
 getData <- function (year, bond1_input, bond2_input){
-  url = paste("https://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData?$filter=year(NEW_DATE)%20eq%20",toString(year), sep="")
+  baseUrl = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve"
+  url <- paste0(baseUrl,"&field_tdr_date_value=",toString(year))
   download_xml(url, file = "TYC.xml")
   doc <- read_xml("TYC.xml")
   entries <- xml_find_all(doc, ".//m:properties")

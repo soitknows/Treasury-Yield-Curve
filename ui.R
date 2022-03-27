@@ -1,5 +1,4 @@
 library(shiny)
-library(xml2)
 library(plotly)
 
 
